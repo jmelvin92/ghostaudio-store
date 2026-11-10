@@ -68,7 +68,7 @@
   .hero { text-align: center; padding-top: 76px; padding-bottom: 34px; }
   .product { font-size: 26px; font-weight: 700; margin-bottom: 10px; }
   .eyebrow { color: var(--red); font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; }
-  h1 { font-size: clamp(40px, 7vw, 76px); line-height: 1.02; margin: 16px 0 20px; letter-spacing: -0.01em; }
+  h1 { font-size: clamp(44px, 8vw, 88px); line-height: 1.02; margin: 16px 0 34px; letter-spacing: -0.01em; }
   .hero p.lead { color: var(--dim); font-size: 20px; max-width: 640px; margin: 0 auto 34px; }
 
   .buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
@@ -123,6 +123,13 @@
   details[open] summary::after { content: "\2212"; }
   details p { color: var(--dim); margin: 12px 0 0; max-width: 760px; }
 
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 56px; }
+  .fact { border-top: 2px solid var(--red); padding-top: 16px; }
+  .fact h3 { font-size: 18px; margin: 0 0 6px; }
+  .fact p { color: var(--dim); margin: 0; font-size: 15px; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .specs { padding: 34px 0; }
+  .specs .wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 40px; color: var(--dim); font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; }
   .cta { text-align: center; }
   .cta h2 { font-size: 42px; }
 
@@ -133,7 +140,8 @@
     nav { display: none; }
     .hero { padding-top: 52px; }
     section { padding: 56px 0; }
-    .steps, .cards, .split, .split.flip { grid-template-columns: 1fr; }
+    .steps, .cards, .split, .split.flip, .pair { grid-template-columns: 1fr; }
+    .facts { grid-template-columns: 1fr 1fr; }
     .split.flip .shot { order: 2; }
     h2 { font-size: 28px; }
     .cta h2 { font-size: 32px; }
@@ -158,10 +166,8 @@
       </span>
     </a>
     <nav>
-      <a href="#how">How it works</a>
       <a href="#features">Features</a>
       <a href="#requirements">Requirements</a>
-      <a href="#faq">FAQ</a>
     </nav>
   </div>
 </header>
@@ -170,173 +176,42 @@
 
   <div class="hero wrap">
     <div class="product">GhostKey</div>
-    <div class="eyebrow">Key detector plugin &middot; VST3 and Audio Unit for macOS</div>
-    <h1>Know the key.<br>Then pick what fits.</h1>
-    <p class="lead">GhostKey listens to your track and tells you its key, its scale, and the keys that work with it. Drop it on a track, press play, read the answer.</p>
+    <div class="eyebrow">Key detector plugin</div>
+    <h1>Know the key.</h1>
 
     <div class="buttons">
       <a class="button primary" data-link="buy" href="#">Buy GhostKey</a>
-      <a class="button secondary" data-link="download" href="#">Download the free trial</a>
+      <a class="button secondary" data-link="download" href="#">Free 14-day trial</a>
     </div>
-    <div class="note">14-day free trial. Fully working, no card needed.</div>
 
     <img class="shot" src="images/ghostkey-detected.png" width="1760" height="1104"
          alt="The GhostKey plugin window showing a detected key of D Major at 92% confidence, with the notes of the scale lit on a keyboard.">
   </div>
 
-  <section id="how">
-    <div class="wrap">
-      <div class="kicker">How it works</div>
-      <h2>Three steps, a couple of seconds.</h2>
-      <p class="section-lead">No file to export and nothing to upload. GhostKey works inside your DAW on whatever is playing.</p>
-
-      <div class="steps">
-        <div class="step">
-          <div class="number">01</div>
-          <h3>Put it on a track</h3>
-          <p>Any track, or the master to hear the whole mix. Your audio passes through untouched.</p>
-        </div>
-        <div class="step">
-          <div class="number">02</div>
-          <h3>Press play</h3>
-          <p>Loop the section you care about. It reads audio, or MIDI notes where your DAW sends them.</p>
-        </div>
-        <div class="step">
-          <div class="number">03</div>
-          <h3>Read the key</h3>
-          <p>The key, how confident it is, and the scale lit up on a keyboard. The result is saved with your project.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="features">
     <div class="wrap">
+      <div class="facts">
+        <div class="fact"><h3>Key and scale</h3><p>Major, minor, harmonic and melodic minor, five modes.</p></div>
+        <div class="fact"><h3>Keys that work</h3><p>The six closest keys, with Camelot codes.</p></div>
+        <div class="fact"><h3>Audio or MIDI</h3><p>Reads whatever is playing. Audio passes through untouched.</p></div>
+        <div class="fact"><h3>Any tuning</h3><p>Not at A = 440? Still reads right.</p></div>
+      </div>
 
-      <div class="split">
-        <div>
-          <div class="kicker">Keys that work</div>
-          <h2>What can I layer over this?</h2>
-          <p class="section-lead" style="margin-bottom:0">One tab lists the six closest keys to the one it found, starting with the one that shares every note.</p>
-          <ul>
-            <li><strong>Dots show shared notes</strong> out of the seven in the scale, so you can see how safe each choice is.</li>
-            <li><strong>Camelot codes</strong> on every key, for DJs and harmonic mixing.</li>
-            <li><strong>Click an alternative</strong> to see the scale and matches for that key instead.</li>
-          </ul>
-        </div>
+      <div class="pair">
         <img class="shot" src="images/ghostkey-keys-that-work.png" width="1760" height="1104" loading="lazy"
              alt="The Keys that work tab, showing six related keys as cards with dots for the number of shared notes.">
-      </div>
-
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-
-      <div class="split flip">
         <img class="shot" src="images/ghostkey-modes.png" width="1760" height="1104" loading="lazy"
              alt="GhostKey showing D Dorian, with a note that it has the same notes as C major.">
-        <div>
-          <div class="kicker">More than major and minor</div>
-          <h2>It names the scale, not just the key.</h2>
-          <p class="section-lead" style="margin-bottom:0">A loop that sits on D minor but uses B natural is D Dorian. GhostKey says so, and tells you which ordinary key shares its notes.</p>
-          <ul>
-            <li><strong>All 24 major and minor keys.</strong></li>
-            <li><strong>Harmonic and melodic minor,</strong> flagged when the notes spell them.</li>
-            <li><strong>Five modes:</strong> Dorian, Phrygian, Lydian, Mixolydian and Phrygian dominant.</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="kicker">Details</div>
-      <h2>Built for how tracks are actually made.</h2>
-      <p class="section-lead">A few things it does that a quick guess by ear won't.</p>
-
-      <div class="cards">
-        <div class="card">
-          <h3>Hears notes, not noise</h3>
-          <p>A voice or a synth is a note plus a stack of overtones, and those overtones land on other note names. GhostKey works out which is which, so it isn't fooled into hearing notes nobody played.</p>
-        </div>
-        <div class="card">
-          <h3>Major or its relative minor</h3>
-          <p>D minor and F major use exactly the same notes. GhostKey uses the chord your loop starts on, and where the bass sits, to tell you which one is home.</p>
-        </div>
-        <div class="card">
-          <h3>Not tuned to A = 440? Fine.</h3>
-          <p>Samples and older recordings are often slightly sharp or flat. GhostKey measures the tuning and reads the notes correctly anyway.</p>
-        </div>
-        <div class="card">
-          <h3>Honest about uncertainty</h3>
-          <p>You get a confidence figure and the next most likely keys. The ghost glows brighter the surer it is. A single vocal on its own can be ambiguous, and it will tell you.</p>
-        </div>
       </div>
     </div>
   </section>
 
-  <section id="requirements">
+  <section id="requirements" class="specs">
     <div class="wrap">
-      <div class="kicker">Requirements</div>
-      <h2>What you need.</h2>
-      <table>
-        <tr><th>System</th><td>macOS 11 or later, on Apple Silicon or Intel</td></tr>
-        <tr><th>Formats</th><td>VST3 and Audio Unit</td></tr>
-        <tr><th>Works in</th><td>Ableton Live, Logic Pro, GarageBand, FL Studio, Cubase, Reaper, Studio One, Bitwig and other VST3 or Audio Unit hosts</td></tr>
-        <tr><th>Windows</th><td>Not yet. A Windows version is planned.</td></tr>
-        <tr><th>Internet</th><td>Needed once, to activate a licence. Not needed after that, or during the trial.</td></tr>
-      </table>
-    </div>
-  </section>
-
-  <section id="faq">
-    <div class="wrap">
-      <div class="kicker">Questions</div>
-      <h2>Before you ask.</h2>
-
-      <details>
-        <summary>How does the trial work?</summary>
-        <p>Install it and use everything for 14 days. After that the key display locks until you enter a licence key. Your audio keeps passing through, so an open project is never interrupted.</p>
-      </details>
-      <details>
-        <summary>Does it change my sound?</summary>
-        <p>No. GhostKey only listens. What goes in comes out bit for bit, with no added latency.</p>
-      </details>
-      <details>
-        <summary>How long does it take to find the key?</summary>
-        <p>About two seconds of audio, or three different MIDI notes, is enough for a first reading. It keeps refining as it hears more. For the best result, press Reset and play your loop from its first chord.</p>
-      </details>
-      <details>
-        <summary>Can it get the key wrong?</summary>
-        <p>Yes. A single part on its own, like a vocal that never lands on the key note, often fits two or three keys equally well. GhostKey shows its confidence and the alternatives so you can judge. It is most reliable on material with chords or a bass line.</p>
-      </details>
-      <details>
-        <summary>Does it work with MIDI?</summary>
-        <p>In hosts that route MIDI to an effect, yes, and it reads MIDI in preference to audio. In Logic Pro and GarageBand the Audio Unit works from audio.</p>
-      </details>
-      <details>
-        <summary>What does the plugin send over the internet?</summary>
-        <p>When you activate, it sends your licence key and your computer's name to Ghost Audio's payment provider, Lemon Squeezy, so you can tell your activations apart. Nothing is sent during the trial, and your audio never leaves your computer.</p>
-      </details>
-      <details>
-        <summary>Can I move my licence to a new computer?</summary>
-        <p>Yes. Open Settings in the plugin, choose Licence, and deactivate the old computer. Then activate on the new one.</p>
-      </details>
-    </div>
-  </section>
-
-  <section class="cta">
-    <div class="wrap">
-      <h2>Stop guessing the key.</h2>
-      <p class="section-lead" style="margin: 0 auto 30px">Try it free for 14 days on your own tracks.</p>
-      <div class="buttons">
-        <a class="button primary" data-link="buy" href="#">Buy GhostKey</a>
-        <a class="button secondary" data-link="download" href="#">Download the free trial</a>
-      </div>
+      <span>macOS 11+</span>
+      <span>Apple Silicon and Intel</span>
+      <span>VST3 and Audio Unit</span>
+      <span>Windows planned</span>
     </div>
   </section>
 
@@ -344,7 +219,7 @@
 
 <footer>
   <div class="wrap">
-    <div>&copy; 2026 Ghost Audio. GhostKey is a Ghost Audio plugin. Payments and licence keys are handled by Lemon Squeezy.</div>
+    <div>&copy; 2026 Ghost Audio</div>
     <div>VST is a registered trademark of Steinberg Media Technologies GmbH. Audio Units is a trademark of Apple Inc.</div>
   </div>
 </footer>
@@ -352,7 +227,7 @@
 <script>
   // Point the buttons at the real links once they exist; until then say so.
   const links = { buy: BUY_URL, download: DOWNLOAD_URL };
-  const waiting = { buy: "Buy: coming soon", download: "Trial download: coming soon" };
+  const waiting = { buy: "Buy: coming soon", download: "Trial: coming soon" };
 
   document.querySelectorAll("[data-link]").forEach(function (button) {
     const kind = button.dataset.link;
